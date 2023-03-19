@@ -20,10 +20,21 @@ COMMON_PATH := device/samsung/afyonlte-common
 
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
-BUILD_FINGERPRINT := samsung/afyonltevl/afyonltecan:4.4.2/KOT49H/G386WVLS1AQA1:user/release-keys
+#Uncomment for afyonltecan
+BUILD_FINGERPRINT := samsung/afyonltevl/afyonltecan:4.4.2/KOT49H/G386WVLS1AQA1:user/release-keys #JJ:WHY IS THIS HERE?
+
+#Uncomment for afyonltetmo-SM-G386T
+#BUILD_FINGERPRINT := samsung/afyonltevl/afyonltetmo:4.4.2/KOT49H/G386TUVU1AQD2:user/release-keys #JJ:WHY IS THIS HERE?
+
+#Uncomment for afyonltemtr-SM-G386T1
+#BUILD_FINGERPRINT := samsung/afyonlteMetroPCS/afyonlteMetroPCS:4.4.2/KOT49H/G386T1UVU1AQD2:user/release-keys #JJ:WHY IS THIS HERE?
+
+
+# Init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_afyonlte
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := afyonlte,afyonltetmo,afyonltecan
+TARGET_OTA_ASSERT_DEVICE := afyonlte,afyonltetmo,afyonltecan,afyonltemtr,afyonlteMetroPCS
 
 # Audio
 USE_CUSTOM_AUDIO_POLICY := 1
@@ -71,7 +82,8 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10985760 #10485760 - use this for building a flashable recovery.img
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10985760 #- use this for normal build
+#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760 #- use this for recovery.img
 BOARD_CACHEIMAGE_PARTITION_SIZE := 721420288 #367001600
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2569011200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12631588352

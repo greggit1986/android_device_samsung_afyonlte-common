@@ -1,5 +1,5 @@
 # JJadb fix attempt
-ro.secure=0
+ro.secure=0 #uncomment for eng or userdebug
 ro.debuggable=1
 # persist.sys.usb.config=adb
 persist.sys.usb.config=mtp,adb

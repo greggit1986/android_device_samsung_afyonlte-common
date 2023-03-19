@@ -48,7 +48,7 @@ PRODUCT_PACKAGES += \
     FlipFlap
 
 # FM
-#PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     FMRadio
 
 # Keylayouts

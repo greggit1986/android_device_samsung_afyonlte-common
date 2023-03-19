@@ -56,10 +56,15 @@ service qcomsysd /system/bin/qcom-system-daemon
     class main
 
 #start camera server as daemon
-service qcamerasvr /system/bin/mm-qcamera-daemon
+#service qcamerasvr /system/bin/mm-qcamera-daemon
+#    class main
+#	user camera
+#    group camera system inet input graphics
+#JJ duplicate of init.qcom.rc for camera server only
+service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class main
 	user camera
-    group camera system inet input graphics
+    group camera system inet input graphics bluetooth gps
 
 # Allow usb charging to be disabled persistently
 on property:persist.usb.chgdisabled=1
@@ -101,8 +106,9 @@ service qrngp /system/bin/qrngp
     oneshot
     disabled
 
-on property:sys.boot_completed=1
+on property:sys.boot_completed=1 
     start qrngp
+    restart cameraserver
 
 service qseecomd /system/bin/qseecomd
     class core
