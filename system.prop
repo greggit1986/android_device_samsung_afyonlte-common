@@ -1,3 +1,15 @@
+# JJadb
+ro.secure=0
+ro.debuggable=1 # Allow adb root
+persist.sys.usb.config=mtp,adb
+persist.sys.dun.override=0
+persist.sys.root_access=1
+service.adb.root=1
+persist.service.adb.enable=1
+ro.adb.secure=0 # Disable adb authentication
+ro.force.debuggable=1
+ro.control_privapp_permissions=log
+
 # Audio
 af.fast_track_multiplier=1
 audio.deep_buffer.media=true
@@ -22,6 +34,15 @@ ro.bluetooth.sap=true
 ro.bluetooth.dun=true
 ro.qualcomm.bt.hci_transport=smd
 
+# Bluetooth -New lin17
+ro.qualcomm.bluetooth.opp=true
+ro.qualcomm.bluetooth.hfp=true
+ro.qualcomm.bluetooth.hsp=true
+ro.qualcomm.bluetooth.pbap=true
+ro.qualcomm.bluetooth.ftp=true
+ro.qualcomm.bluetooth.nap=true
+ro.qualcomm.bluetooth.map=true
+
 # Camera
 camera2.portability.force_api=1
 
@@ -29,7 +50,7 @@ camera2.portability.force_api=1
 ro.hdcp2.rx=tz
 ro.qualcomm.cabl=1
 ro.secwvk=144
-ro.sf.lcd_density=320
+ro.sf.lcd_density=240
 debug.sf.disable_backpressure=1
 debug.sf.latch_unsignaled=1
 debug.sf.recomputecrop=0
@@ -37,6 +58,10 @@ debug.egl.hw=1
 debug.composition.type=c2d
 debug.disable.bwc=1
 dev.pm.dyn_samplingrate=1
+
+# Display JJadd- sys.use_fifo_ui property to enable the top app's UI and RenderThread to be SCHED_FIFO
+# may not be suitable for all devices
+sys.use_fifo_ui=1
 
 # GPS
 persist.gps.qc_nlp_in_use=0
@@ -52,10 +77,27 @@ ro.hdmi.enable=true
 # HWUI
 debug.hwui.use_buffer_age=false
 
-# Media
+# JJHWUI-removed lin17
+#debug.hwui.use_buffer_age=false
+#ro.hwui.texture_cache_size=24
+#ro.hwui.layer_cache_size=16
+#ro.hwui.path_cache_size=4
+#ro.hwui.texture_cache_flushrate=0.4
+#ro.hwui.shape_cache_size=1
+#ro.hwui.gradient_cache_size=0.5
+#ro.hwui.drop_shadow_cache_size=2
+#ro.hwui.r_buffer_cache_size=2
+#ro.hwui.text_small_cache_width=1024
+#ro.hwui.text_small_cache_height=512
+#ro.hwui.text_large_cache_width=2048
+#ro.hwui.text_large_cache_height=1024
+
+# Media - lin17 added
 debug.stagefright.ccodec=0
 debug.stagefright.omx_default_rank.sw-audio=1
 debug.stagefright.omx_default_rank=0
+
+# Media
 media.stagefright.legacyencoder=true
 media.stagefright.less-secure=true
 media.stagefright.enable-player=true
@@ -68,6 +110,10 @@ mmp.enable.3g2=true
 #37491 is decimal sum of supported codecs in AAL
 #codecs: AVI AC3 ASF AAC QCP DTS 3G2 MP2TS
 mm.enable.qcom_parser=37491
+
+# Media - lin17 removed
+#mm.enable.smoothstreaming=true
+#media.aac_51_output_enabled=true
 
 # Memory optimizations
 ro.vendor.qti.am.reschedule_service=true

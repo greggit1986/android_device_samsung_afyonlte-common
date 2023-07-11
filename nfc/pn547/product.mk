@@ -21,7 +21,7 @@ PRODUCT_PACKAGES += \
     Tag
 
 PRODUCT_COPY_FILES += \
-    device/samsung/s3ve3g/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
+    device/samsung/afyonlte/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
 
 # NFC Permissions
 PRODUCT_COPY_FILES += \

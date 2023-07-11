@@ -16,14 +16,14 @@
 # inherit from common msm8226
 include device/samsung/msm8226-common/BoardConfigCommon.mk
 
-COMMON_PATH := device/samsung/s3ve3g-common
+COMMON_PATH := device/samsung/afyonlte-common
 
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
-BUILD_FINGERPRINT := samsung/s3ve3gxx/s3ve3g:4.4.2/KOT49H/I9301IXXUANL1:user/release-keys
+BUILD_FINGERPRINT := samsung/afyonltevl/afyonltecan:4.4.2/KOT49H/G386WVLS1AQA1:user/release-keys
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := s3ve3g,s3ve3gds,s3ve3gjv,s3ve3gxx
+TARGET_OTA_ASSERT_DEVICE := afyonlte,afyonltetmo,afyonltecan
 
 # Audio
 USE_CUSTOM_AUDIO_POLICY := 1
@@ -50,7 +50,9 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
+#BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
+BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
+#BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -60,6 +62,9 @@ BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 LZMA_RAMDISK_TARGETS := recovery
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
 
+#JJADD
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
+
 # Legacy BLOB Support
 TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib/libperipheral_client.so|libshim_binder.so
@@ -68,22 +73,31 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
     /system/vendor/bin/mm-qcamera-daemon=22 \
     /system/vendor/bin/hw/rild=27
 
+# Legacy BLOB Support-removed lin17
+#TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
 BOARD_CACHEIMAGE_PARTITION_SIZE := 721420288
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2097152000
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 12562627584
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2569011200
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 12631588352
 
 # Power HAL
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(COMMON_PATH)/power/power_ext.c
+
+# Power HAL-removed lin17
+#TARGET_POWERHAL_VARIANT := qcom
 
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 
 # Radio
 BOARD_PROVIDES_LIBRIL := true
+
+# Radio-removed lin17
+#TARGET_RIL_VARIANT := caf
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../$(COMMON_PATH)/recovery/recovery_keys.c
@@ -92,7 +106,13 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_RECOVERY_SWIPE := true
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
+
+# Recovery-added lin17
 TARGET_RECOVERY_DENSITY := hdpi
+
+# Recovery-removed lin17
+#BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+#BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 
 # SELinux
 include $(COMMON_PATH)/sepolicy/sepolicy.mk
@@ -100,5 +120,13 @@ include $(COMMON_PATH)/sepolicy/sepolicy.mk
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
+#######################Removed lin 17#################################
+# Shipping API Level
+PRODUCT_SHIPPING_API_LEVEL := 18
+
+# Use Snapdragon LLVM if available on build server
+TARGET_USE_SDCLANG := true
+########################################################
+
 # inherit from the proprietary version
--include vendor/samsung/s3ve3g-common/BoardConfigVendor.mk
+-include vendor/samsung/afyonlte-common/BoardConfigVendor.mk

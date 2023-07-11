@@ -20,8 +20,8 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1280
-TARGET_SCREEN_WIDTH := 720   
+TARGET_SCREEN_HEIGHT := 960
+TARGET_SCREEN_WIDTH := 540   
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -37,7 +37,7 @@ PRODUCT_COPY_FILES += \
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
-PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
 
 # Doze
 PRODUCT_PACKAGES += \
@@ -107,7 +107,11 @@ PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl
 
 # Get non-open-source specific aspects
-$(call inherit-product-if-exists, vendor/samsung/s3ve3g-common/s3ve3g-common-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/afyonlte-common/afyonlte-common-vendor.mk)
+
+# JJADDApps
+PRODUCT_PACKAGES += \
+    deviceinfohw
 
 # common msm8226
 $(call inherit-product, device/samsung/msm8226-common/msm8226.mk)

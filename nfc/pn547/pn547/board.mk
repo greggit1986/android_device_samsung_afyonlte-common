@@ -15,7 +15,7 @@
 #
 
 # NFC
-include device/samsung/s3ve3g/nfc/board.mk
+include device/samsung/afyonlte/nfc/board.mk
 
 # PN547 specific flags
 BOARD_NFC_CHIPSET := pn547
