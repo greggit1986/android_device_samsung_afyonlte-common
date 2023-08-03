@@ -1,11 +1,12 @@
 # JJadb
-ro.secure=0
+#ro.secure=0
 ro.debuggable=1 # Allow adb root
 persist.sys.usb.config=mtp,adb
 persist.sys.dun.override=0
 persist.sys.root_access=1
 service.adb.root=1
 persist.service.adb.enable=1
+persist.service.debuggable=1
 ro.adb.secure=0 # Disable adb authentication
 ro.force.debuggable=1
 ro.control_privapp_permissions=log

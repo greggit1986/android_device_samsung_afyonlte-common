@@ -109,9 +109,5 @@ PRODUCT_PACKAGES += \
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/samsung/afyonlte-common/afyonlte-common-vendor.mk)
 
-# JJADDApps
-PRODUCT_PACKAGES += \
-    deviceinfohw
-
 # common msm8226
 $(call inherit-product, device/samsung/msm8226-common/msm8226.mk)
