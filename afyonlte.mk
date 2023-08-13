@@ -108,5 +108,10 @@ PRODUCT_PACKAGES += \
     VLC-Android \
     Mozillafirefox
 
+# JJADD - Open source libaptX - https://github.com/notmyst33d/libaptX
+PRODUCT_PACKAGES += \
+    libaptX_encoder \
+    libaptXHD_encoder
+
 # common msm8226
 $(call inherit-product, device/samsung/msm8226-common/msm8226.mk)
