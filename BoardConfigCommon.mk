@@ -20,21 +20,10 @@ COMMON_PATH := device/samsung/afyonlte-common
 
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
-#Uncomment for afyonltecan
-BUILD_FINGERPRINT := samsung/afyonltevl/afyonltecan:4.4.2/KOT49H/G386WVLS1AQA1:user/release-keys #JJ:WHY IS THIS HERE?
-
-#Uncomment for afyonltetmo-SM-G386T
-#BUILD_FINGERPRINT := samsung/afyonltevl/afyonltetmo:4.4.2/KOT49H/G386TUVU1AQD2:user/release-keys #JJ:WHY IS THIS HERE?
-
-#Uncomment for afyonltemtr-SM-G386T1
-#BUILD_FINGERPRINT := samsung/afyonlteMetroPCS/afyonlteMetroPCS:4.4.2/KOT49H/G386T1UVU1AQD2:user/release-keys #JJ:WHY IS THIS HERE?
-
-
-# Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_afyonlte
+BUILD_FINGERPRINT := samsung/afyonltevl/afyonltecan:4.4.2/KOT49H/G386WVLS1AQA1:user/release-keys
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := afyonlte,afyonltetmo,afyonltecan,afyonltemtr,afyonlteMetroPCS
+TARGET_OTA_ASSERT_DEVICE := afyonltecan,afyonltetmo,afyonlteMetroPCS
 
 # Audio
 USE_CUSTOM_AUDIO_POLICY := 1
@@ -60,6 +49,7 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
+#BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
@@ -70,6 +60,9 @@ BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 BOARD_RAMDISK_USE_XZ := true
 LZMA_RAMDISK_TARGETS := recovery #JJADD
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
+
+#JJADD
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # Legacy BLOB Support
 TARGET_LD_SHIM_LIBS += \
@@ -82,22 +75,20 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10985760 #- use this for normal build
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 12485760 #- use this for normal build
 #BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760 #- use this for recovery.img
-BOARD_CACHEIMAGE_PARTITION_SIZE := 721420288 #367001600
+BOARD_CACHEIMAGE_PARTITION_SIZE := 721420288
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2569011200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12631588352
 
 # Power HAL
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(COMMON_PATH)/power/power_ext.c
-#TARGET_POWERHAL_VARIANT := qcom #JJADD
 
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 
 # Radio
 BOARD_PROVIDES_LIBRIL := true
-#TARGET_RIL_VARIANT := caf #JJADD
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../$(COMMON_PATH)/recovery/recovery_keys.c
