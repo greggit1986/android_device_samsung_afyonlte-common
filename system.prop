@@ -72,7 +72,7 @@ ro.vendor.extension_library=/vendor/lib/libqti-perfd-client.so
 persist.data.netmgrd.qos.enable=false
 persist.data.qmi.adb_logmask=0
 persist.radio.add_power_save=1
-rild.libpath=/vendor/lib/libsec-ril.so
+vendor.rild.libpath=/vendor/lib/libsec-ril.so
 ro.telephony.mms_data_profile=5
 ro.ril.telephony.qan_resp_strings=6
 ro.telephony.default_network=3
@@ -93,7 +93,10 @@ debug.sensors=1
 net.tethering.noprovisioning=true
 
 # Vendor security patch level
-ro.lineage.build.vendor_security_patch=2017-08-01
+#ro.lineage.build.vendor_security_patch=2017-08-01
+
+# Vendor security patch level-klte
+ro.lineage.build.vendor_security_patch=2018-10-01
 
 # VIDC: debug_levels
 # 1:ERROR 2:HIGH 4:LOW 0:NOLOGS 7:AllLOGS

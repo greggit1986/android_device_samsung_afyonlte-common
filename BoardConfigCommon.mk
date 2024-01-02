@@ -49,7 +49,6 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-#BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=23 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
 BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
@@ -64,6 +63,9 @@ TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
 #JJADD
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
+# JJEDIT Kernel
+TARGET_KERNEL_CLANG_COMPILE := false
+
 # Legacy BLOB Support
 TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib/libperipheral_client.so|libshim_binder.so
@@ -75,7 +77,7 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 12485760 #- use this for normal build
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 12485760 #- use this for normal build - recovery img size is still too big
 #BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760 #- use this for recovery.img
 BOARD_CACHEIMAGE_PARTITION_SIZE := 721420288
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2569011200
