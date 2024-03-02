@@ -24,16 +24,6 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#JJADD For logging - Only works if you are stuck on bootanimation, not bootlogo
-service logger /system/bin/logcat -b all -D -f /cache/boot_log.txt
-    class main
-    user root
-    group root system
-    disabled
-    oneshot
-
-#JJADD For logging-End
-
 on post-fs-data
     # Permissions for svc led
     #chown system system /sys/class/sec/led/led_r
@@ -50,11 +40,6 @@ on post-fs-data
     # Torch
     chmod 0666 /sys/class/leds/led:flash_torch/brightness
     chown system camera /sys/class/leds/led:flash_torch/brightness 
-
-#JJADD For logging
-    rm /cache/boot_log.txt
-    start logger
-#JJADD For logging-End
     
 on boot
     # NFC_NXP
@@ -107,9 +92,3 @@ on boot
     chown system system /efs/gyro_cal_data
     chmod 0640 /efs/gyro_cal_data
     restorecon /efs/gyro_cal_data
-
-#JJADD For logging
-on property:sys.boot_completed=1
-    # Stop the logger service
-    stop logger
-#JJADD For logging-End

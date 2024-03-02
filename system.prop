@@ -15,12 +15,12 @@ vendor.dedicated.device.for.voip=true
 vendor.voice.path.for.pcm.voip=false
 
 # Bluetooth
-ro.bluetooth.hfp.ver=1.7
-vendor.qcom.bluetooth.soc=pronto
-qcom.bt.le_dev_pwr_class=1
-ro.bluetooth.sap=true
-ro.bluetooth.dun=true
-ro.qualcomm.bt.hci_transport=smd
+#ro.bluetooth.hfp.ver=1.7
+#vendor.qcom.bluetooth.soc=pronto
+#qcom.bt.le_dev_pwr_class=1
+#ro.bluetooth.sap=true
+#ro.bluetooth.dun=true
+#ro.qualcomm.bt.hci_transport=smd
 
 # Camera
 camera2.portability.force_api=1
@@ -94,9 +94,6 @@ net.tethering.noprovisioning=true
 
 # Vendor security patch level
 ro.lineage.build.vendor_security_patch=2017-08-01
-
-# Vendor security patch level-klte
-#ro.lineage.build.vendor_security_patch=2018-10-01
 
 # VIDC: debug_levels
 # 1:ERROR 2:HIGH 4:LOW 0:NOLOGS 7:AllLOGS

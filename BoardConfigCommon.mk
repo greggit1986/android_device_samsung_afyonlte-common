@@ -29,9 +29,9 @@ TARGET_OTA_ASSERT_DEVICE := afyonltecan,afyonltetmo,afyonlteMetroPCS
 USE_CUSTOM_AUDIO_POLICY := 1
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
-BOARD_HAVE_BLUETOOTH_QCOM := true
-QCOM_BT_USE_BTNV := true
+#BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth
+#BOARD_HAVE_BLUETOOTH_QCOM := true
+#QCOM_BT_USE_BTNV := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := MSM8226
@@ -57,13 +57,13 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000 --tags_offset 0x1e00000
 BOARD_CUSTOM_BOOTIMG := true
 BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 BOARD_RAMDISK_USE_XZ := true
-LZMA_RAMDISK_TARGETS := recovery #JJADD
+LZMA_RAMDISK_TARGETS := recovery
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
 
 #JJADD
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
-# JJEDIT Kernel
+# Kernel
 TARGET_KERNEL_CLANG_COMPILE := false
 
 # Legacy BLOB Support
