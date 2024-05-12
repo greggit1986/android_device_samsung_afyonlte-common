@@ -21,7 +21,9 @@ COMMON_PATH := device/samsung/afyonlte-common
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := afyonltetmo,afyonltecan
+#TARGET_OTA_ASSERT_DEVICE := afyonltetmo,afyonltecan,afyonlteMetroPCS
+TARGET_OTA_ASSERT_DEVICE := afyonltetmo,afyonltecan,afyonltemtr,SM-G386T,SM-G386T1,SM-G386W,G386T,G386T1
+
 
 # Audio
 USE_CUSTOM_AUDIO_POLICY := 1
@@ -46,7 +48,8 @@ TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
-BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
+#BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 zcache.enabled=1 zcache.compressor=lz4
+BOARD_KERNEL_CMDLINE := console=null androidboot.console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
@@ -69,11 +72,24 @@ TARGET_PROCESS_SDK_VERSION_OVERRIDE += \
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 12485760 #comment for recovery
-#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760 #Uncomment for recovery
-BOARD_CACHEIMAGE_PARTITION_SIZE := 721420288
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2569011200
+#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 12485760 #comment for recovery
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760 #Uncomment for recovery
+#BOARD_CACHEIMAGE_PARTITION_SIZE := 721420288
+#BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2569011200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12631588352
+
+# Flags for MetroPCS - START
+BOARD_CACHEIMAGE_PARTITION_SIZE := 524288000
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2411724800
+TARGET_SYSTEMIMAGES_USE_EXT4 := true
+
+COMMON_GLOBAL_CFLAGS += -DQCOM_BSP
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+TARGET_USES_QCOM_BSP := true
+
+BOARD_HAS_NO_MISC_PARTITION := true
+
+# Flags for MetroPCS - END
 
 # Power HAL
 TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(COMMON_PATH)/power/power_ext.c

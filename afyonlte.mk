@@ -103,10 +103,11 @@ PRODUCT_PACKAGES += \
 $(call inherit-product-if-exists, vendor/samsung/afyonlte-common/afyonlte-common-vendor.mk)
 
 # JJADDApps
-PRODUCT_PACKAGES += \
-    deviceinfohw \
-    VLC-Android \
-    Mozillafirefox
+#PRODUCT_PACKAGES += \
+#    deviceinfohw \
+#    VLC-Android \
+#    footej \
+#    Mozillafirefox
 
 # JJADD - Open source libaptX - https://github.com/notmyst33d/libaptX
 PRODUCT_PACKAGES += \
