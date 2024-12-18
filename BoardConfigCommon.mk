@@ -39,9 +39,6 @@ TARGET_BOOTLOADER_BOARD_NAME := MSM8226
 # Build
 BLOCK_BASED_OTA := true
 
-# Do not build OTA package
-#TARGET_SKIP_OTA_PACKAGE := true
-
 # HIDL
 DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest.xml
 
