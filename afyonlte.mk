@@ -77,6 +77,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsecnativefeature
 
+# RIL-gprimeltexx
+PRODUCT_PACKAGES += \
+    libril \
+    librilutils \
+    rild
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
