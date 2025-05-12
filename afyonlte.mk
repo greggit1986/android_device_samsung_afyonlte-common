@@ -111,6 +111,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl
 
+# Proprieties-gprimeltexx
+-include $(LOCAL_PATH)/vendor_prop.mk
+
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/samsung/afyonlte-common/afyonlte-common-vendor.mk)
 
