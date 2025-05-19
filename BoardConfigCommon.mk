@@ -21,7 +21,7 @@ COMMON_PATH := device/samsung/afyonlte-common
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := afyonlte,afyonltetmo,afyonltecan
+TARGET_OTA_ASSERT_DEVICE := afyonlte,afyonltetmo,afyonltecan,afyonltemtr,afyonlteMetroPCS,SM-G386T,SM-G386T1,SM-G386W,G386T,G386T1
 
 # Audio
 USE_CUSTOM_AUDIO_POLICY := 1
