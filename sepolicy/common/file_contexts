@@ -3,3 +3,5 @@
 
 # sysfs
 /sys/devices(/.*)?/input/input[2-3]/enabled             u:object_r:sysfs_hal_pwr:s0
+# legacy_obb_data
+/system/bin/migrate_legacy_obb_data u:object_r:migrate_legacy_obb_data_exec:s0
