@@ -61,9 +61,6 @@ BOARD_RAMDISK_USE_XZ := true
 LZMA_RAMDISK_TARGETS := recovery #JJADD
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
 
-#JJADD
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-
 # Legacy BLOB Support
 TARGET_LD_SHIM_LIBS += \
     /system/vendor/lib/libperipheral_client.so|libshim_binder.so
