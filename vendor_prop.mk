@@ -6,9 +6,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.jbims=1 \
 	persist.radio.no_wait_for_card=1
 
-# Telephony  boh meglio lasciarlo qua
+# Telephony - Well, better leave it here!
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.telephony.default_network=10
+	ro.telephony.default_network=10 \
+	persist.radio.calls.on.ims=true
 
 # Volume
 PRODUCT_PROPERTY_OVERRIDES += \
