@@ -59,11 +59,6 @@ BOARD_CUSTOM_BOOTIMG_MK := hardware/samsung/mkbootimg.mk
 BOARD_RAMDISK_USE_XZ := true
 LZMA_RAMDISK_TARGETS := recovery #JJADD
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
-
-#JJADD
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-
-# JJEDIT Kernel
 TARGET_KERNEL_CLANG_COMPILE := false
 
 # Legacy BLOB Support

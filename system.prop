@@ -105,16 +105,3 @@ ro.lineage.build.vendor_security_patch=2017-08-01
 # WiFi
 ro.disableWifiApFirmwareReload=true
 wifi.interface=wlan0
-
-# JJadb fix
-########uncomment for eng or userdebug########
-ro.secure=0
-########uncomment for eng or userdebug########
-ro.debuggable=1
-# persist.sys.usb.config=adb
-persist.sys.usb.config=mtp,adb
-persist.sys.dun.override=0
-persist.sys.root_access=1
-service.adb.root=1
-#New addition for adb
-persist.service.adb.enable=1
