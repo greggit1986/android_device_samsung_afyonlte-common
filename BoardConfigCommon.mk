@@ -60,9 +60,6 @@ BOARD_RAMDISK_USE_XZ := true
 LZMA_RAMDISK_TARGETS := recovery
 TARGET_KERNEL_SOURCE := kernel/samsung/msm8226
 
-#JJADD
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
-
 # Kernel
 TARGET_KERNEL_CLANG_COMPILE := false
 
