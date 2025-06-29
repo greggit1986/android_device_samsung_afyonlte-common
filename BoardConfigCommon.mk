@@ -20,8 +20,6 @@ COMMON_PATH := device/samsung/afyonlte-common
 
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
-BUILD_FINGERPRINT := samsung/afyonltevl/afyonltecan:4.4.2/KOT49H/G386WVLS1AQA1:user/release-keys
-
 # Assert
 TARGET_OTA_ASSERT_DEVICE := afyonltecan,afyonltetmo,afyonlteMetroPCS,afyonltemtr,SM-G386T,SM-G386T1,SM-G386W,G386T,G386T1
 
